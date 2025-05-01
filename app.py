@@ -4,6 +4,9 @@ from googletrans import Translator
 from streamlit_lottie import st_lottie
 import json
 
+# ESTA DEBE SER LA PRIMERA LÍNEA DE STREAMLIT
+st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
+
 # Función para cargar animaciones desde archivo JSON
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
@@ -11,7 +14,6 @@ def load_lottiefile(filepath: str):
 
 # Traductor
 translator = Translator()
-
 
 page_style = """
 <style>
@@ -45,7 +47,6 @@ page_style = """
 st.markdown(page_style, unsafe_allow_html=True)
 
 # Título
-st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
 st.title('🐢 Analizador de Sentimiento con Animaciones')
 
 # Sidebar
