@@ -16,6 +16,30 @@ translator = Translator()
 st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
 st.title('💬 Analizador de Sentimiento con Animaciones')
 
+page_bg_color = """
+<style>
+/* Fondo principal */
+[data-testid="stAppViewContainer"] {
+    background-color: #d3f8e3; /* Cambia el color de la página principal */
+}
+
+/* Fondo del sidebar */
+[data-testid="stSidebar"] {
+    background-image: url("https://img.freepik.com/free-vector/simple-pattern-background_1319-147.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+[data-testid="stMarkdownContainer"] {
+    color: #0e0f15;
+}
+</style>
+"""
+
+st.markdown(page_bg_color, unsafe_allow_html=True)
+
+
+
 # Sidebar
 with st.sidebar:
     st.subheader("¿Qué es Polaridad y Subjetividad?")
