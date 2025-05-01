@@ -45,7 +45,7 @@ page_style = """
 st.markdown(page_style, unsafe_allow_html=True)
 
 # Título
-st.set_page_config(page_title="Análisis de Sentimiento", page_icon="😋", layout="centered")
+st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
 st.title('🐢 Analizador de Sentimiento con Animaciones')
 
 # Sidebar
