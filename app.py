@@ -51,7 +51,7 @@ with st.sidebar:
 
 # Entrada de texto
 with st.expander('🔍 Analizar texto'):
-    text1 = st.text_area('✍️ Escribe tu frase:')
+    text1 = st.text_area('✍📜 Escribe tu frase:')
     if text1:
         # Traducir de español a inglés
         translation = translator.translate(text1, src="es", dest="en")
@@ -80,7 +80,7 @@ with st.expander('🔍 Analizar texto'):
 
 # Corrección de texto en inglés
 with st.expander('🛠️ Corrección en Inglés'):
-    text2 = st.text_area('✍️ Escribe tu texto en inglés:', key='4')
+    text2 = st.text_area('✍️📜 Escribe tu texto en inglés:', key='4')
     if text2:
         blob2 = TextBlob(text2)
         st.write('Texto corregido:')
