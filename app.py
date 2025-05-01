@@ -16,27 +16,26 @@ translator = Translator()
 st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
 st.title('💬 Analizador de Sentimiento con Animaciones')
 
-page_bg_color = """
+page_style = """
 <style>
 /* Fondo principal */
 [data-testid="stAppViewContainer"] {
-    background-color: #d3f8e3; /* Cambia el color de la página principal */
+    background-color: #5697d5;
 }
 
 /* Fondo del sidebar */
 [data-testid="stSidebar"] {
-    background-image: url("https://img.freepik.com/free-vector/simple-pattern-background_1319-147.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #9fcefb;
+}
 
+/* Color de todos los textos */
 [data-testid="stMarkdownContainer"] {
-    color: #0e0f15;
+    color: #121314;
 }
 </style>
 """
 
-st.markdown(page_bg_color, unsafe_allow_html=True)
+st.markdown(page_style, unsafe_allow_html=True)
 
 
 
