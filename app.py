@@ -12,9 +12,41 @@ def load_lottiefile(filepath: str):
 # Traductor
 translator = Translator()
 
+
+page_style = """
+<style>
+/* Fondo principal */
+[data-testid="stAppViewContainer"] {
+    background-color: #5697d5;
+}
+
+/* Fondo del sidebar */
+[data-testid="stSidebar"] {
+    background-color: #9fcefb;
+}
+
+/* Color de todos los textos */
+[data-testid="stMarkdownContainer"] {
+    color: #121314;
+}
+
+/* Estilo para los mensajes */
+.sentiment-message {
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+"""
+
+st.markdown(page_style, unsafe_allow_html=True)
+
 # Título
-st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
-st.title('💬 Analizador de Sentimiento con Animaciones')
+st.set_page_config(page_title="Análisis de Sentimiento", page_icon="😋", layout="centered")
+st.title('🐢 Analizador de Sentimiento con Animaciones')
 
 # Sidebar
 with st.sidebar:
@@ -28,9 +60,9 @@ with st.sidebar:
 
 # Mensajes personalizados
 MESSAGES = {
-    "positive": "¡Tu texto es positivo! 😊 Brilla como el sol ☀️",
-    "neutral": "Tu texto es neutral 😐 Como un día nublado ⛅",
-    "negative": "Tu texto es negativo 😔 Como la lluvia en lunes 🌧️"
+    "positive": "¡Tu texto es positivo! 😊 Las buenas energías fluyen en tu texto. ¡Genial!☀️",
+    "neutral": "Tu texto es neutral 😐 Ni frio ni caliente , justo en el punto medio ⛅",
+    "negative": "Tu texto es negativo 😔 Parece que estás expresando algo difícil! 🌧️"
 }
 
 # Entrada de texto
