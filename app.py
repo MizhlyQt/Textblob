@@ -32,12 +32,20 @@ page_style = """
 [data-testid="stMarkdownContainer"] {
     color: #121314;
 }
+
+/* Estilo para los mensajes */
+.sentiment-message {
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
 </style>
 """
 
 st.markdown(page_style, unsafe_allow_html=True)
-
-
 
 # Sidebar
 with st.sidebar:
@@ -48,6 +56,13 @@ with st.sidebar:
     **Subjetividad:**  
     De 0 (objetivo) a 1 (subjetivo).
     """)
+
+# Mensajes personalizados
+MESSAGES = {
+    "positive": "¡Tu texto es positivo! 😊 Brilla como el sol ☀️",
+    "neutral": "Tu texto es neutral 😐 Como un día nublado ⛅",
+    "negative": "Tu texto es negativo 😔 Como la lluvia en lunes 🌧️"
+}
 
 # Entrada de texto
 with st.expander('🔍 Analizar texto'):
@@ -61,20 +76,21 @@ with st.expander('🔍 Analizar texto'):
         # Resultados
         polarity = round(blob.sentiment.polarity, 2)
         subjectivity = round(blob.sentiment.subjectivity, 2)
+        
         st.write('**Polaridad:**', polarity)
         st.write('**Subjetividad:**', subjectivity)
 
         # Mostrar interacción según el sentimiento
         if polarity >= 0.5:
-            st.success('¡Sentimiento Positivo! 😊')
+            st.markdown(f'<div class="sentiment-message" style="background-color:#d4edda;color:#155724;">{MESSAGES["positive"]}</div>', unsafe_allow_html=True)
             animation = load_lottiefile('positivo.json')
             st_lottie(animation, height=300)
         elif polarity <= -0.5:
-            st.error('Sentimiento Negativo 😔')
+            st.markdown(f'<div class="sentiment-message" style="background-color:#f8d7da;color:#721c24;">{MESSAGES["negative"]}</div>', unsafe_allow_html=True)
             animation = load_lottiefile('negativo.json')
             st_lottie(animation, height=300)
         else:
-            st.warning('Sentimiento Neutral 😐')
+            st.markdown(f'<div class="sentiment-message" style="background-color:#fff3cd;color:#856404;">{MESSAGES["neutral"]}</div>', unsafe_allow_html=True)
             animation = load_lottiefile('neutral.json')
             st_lottie(animation, height=300)
 
