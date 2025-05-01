@@ -16,37 +16,6 @@ translator = Translator()
 st.set_page_config(page_title="Análisis de Sentimiento", page_icon="💬", layout="centered")
 st.title('💬 Analizador de Sentimiento con Animaciones')
 
-page_style = """
-<style>
-/* Fondo principal */
-[data-testid="stAppViewContainer"] {
-    background-color: #5697d5;
-}
-
-/* Fondo del sidebar */
-[data-testid="stSidebar"] {
-    background-color: #9fcefb;
-}
-
-/* Color de todos los textos */
-[data-testid="stMarkdownContainer"] {
-    color: #121314;
-}
-
-/* Estilo para los mensajes */
-.sentiment-message {
-    padding: 10px;
-    border-radius: 8px;
-    margin: 15px 0;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-}
-</style>
-"""
-
-st.markdown(page_style, unsafe_allow_html=True)
-
 # Sidebar
 with st.sidebar:
     st.subheader("¿Qué es Polaridad y Subjetividad?")
@@ -82,15 +51,15 @@ with st.expander('🔍 Analizar texto'):
 
         # Mostrar interacción según el sentimiento
         if polarity >= 0.5:
-            st.markdown(f'<div class="sentiment-message" style="background-color:#d4edda;color:#155724;">{MESSAGES["positive"]}</div>', unsafe_allow_html=True)
+            st.success(MESSAGES["positive"])
             animation = load_lottiefile('positivo.json')
             st_lottie(animation, height=300)
         elif polarity <= -0.5:
-            st.markdown(f'<div class="sentiment-message" style="background-color:#f8d7da;color:#721c24;">{MESSAGES["negative"]}</div>', unsafe_allow_html=True)
+            st.error(MESSAGES["negative"])
             animation = load_lottiefile('negativo.json')
             st_lottie(animation, height=300)
         else:
-            st.markdown(f'<div class="sentiment-message" style="background-color:#fff3cd;color:#856404;">{MESSAGES["neutral"]}</div>', unsafe_allow_html=True)
+            st.warning(MESSAGES["neutral"])
             animation = load_lottiefile('neutral.json')
             st_lottie(animation, height=300)
 
